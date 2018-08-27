@@ -3,3 +3,70 @@ body {
 	padding: 0;
 	font-family: sans-serif;
 }
+
+.app {
+	text-align: center;
+}
+.app .app_logo {
+	height: 80px;
+	animation: app-logo-spin infinite 20s linear;
+}
+.app .app_header {
+	/* height: 150px; */
+	padding: 20px;
+	background: #222; color: #fff;
+}
+.app .app_title {
+	font-size: 24px;
+}
+.app .content {
+	box-sizing: border-box;
+	width: 50%;
+	margin: 0px auto; padding: 15px 30px;
+	border: 1px solid #bbb; border-top: 0;
+}
+.app .content p {
+	margin: 10px 0px;
+	font-size: 14px;
+	text-align: left;
+}
+.app .content a {
+	/* #51d3fa rgb(81,211,250) */
+	color: rgb(65,169,200);
+	/* text-shadow: 0px 0px 2px ; */
+}
+.app .content a:hover {
+	color: rgb(81,211,250);
+}
+@media (max-width: 1024px) {
+	.app .content {
+		width: 70%;
+	}
+}
+@media (max-width: 768px) {
+	.app .content {
+		width: 80%;
+	}
+}
+@media (max-width: 414px) {
+	.app .content {
+		width: 100%;
+		padding: 10px 22px;
+		border: 0;
+	}
+	.app .content p {
+		text-align: justify;
+	}
+}
+
+@keyframes app-logo-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+.list li {
+	display: inline;
+	margin-right: 5px;
+	padding: 3px;
+	border: 2px solid #fff;
+	background-color: orange;
+}
