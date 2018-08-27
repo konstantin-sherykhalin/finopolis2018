@@ -6,7 +6,8 @@ import Enter			from './components/enter';
 import User				from './components/user';
 import ValueProposal	from './components/value_proposal';
 import Expert			from './components/expert';
-
+import Header 			from './components/header';
+import Footer 			from './components/footer';
 var routes = [
 	<Route key="1" exact path='/'				component={Main} />,
 	<Route key="2" exact path='/enter'			component={Enter} />,
@@ -15,4 +16,10 @@ var routes = [
 	<Route key="5" exact path='/expert'			component={Expert} />,
 ];
 
-export default () => <Switch>{routes}</Switch>
+export default () => (
+	<div>
+		<Header/>
+		<Switch>{routes}</Switch>
+		<Footer/>
+	</div>
+);

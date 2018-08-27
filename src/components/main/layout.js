@@ -6,17 +6,10 @@ import logo from './logo.svg';
 export default (props) => (
 	<div className="app">
 		<header className="app_header">
-			<img className="app_logo" src={logo} />
-			<h1 className="app_title">Финополис 2018</h1>
-			<ul className="list">
-				<li>Роадмап</li>
-				<li>Команда</li>
-				<li>Финансы</li>
-				<li>Пилот</li>
-			</ul>
+			<h1 className="app_title">Главная</h1>
 		</header>
 		<div className="content">
-			<p>Здесь будет приложение.</p>
+			<p>Привет на главной</p>
 		</div>
 	</div>
 );

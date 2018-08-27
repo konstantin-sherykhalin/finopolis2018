@@ -15,9 +15,12 @@ body {
 	/* height: 150px; */
 	padding: 20px;
 	background: #222; color: #fff;
+	text-align: center;
 }
 .app .app_title {
 	font-size: 24px;
+	text-align: center;
+	
 }
 .app .content {
 	box-sizing: border-box;
@@ -70,3 +73,116 @@ body {
 	border: 2px solid #fff;
 	background-color: orange;
 }
+/*ENTER*/
+.wall {
+			background: #0089FF;
+		}
+		.first {
+			text-align: center;
+			margin-top: 5%;
+		}
+		.button {
+			text-align: center;
+			margin-top: 1%;
+			
+		}
+		.first input {
+			text-align: center;
+			margin-bottom: 3%;
+		}
+		.inputs {
+			width: 200;
+			height: 30;
+			border: 1px solid #000;
+		}
+		.button input {
+			font-family: Arial;
+			font-size: 15px;
+			color: #FFFFFF;
+			text-shadow: 
+				-0   -1px 0   #000000,
+				 0   -1px 0   #000000,
+				-0    1px 0   #000000,
+				 0    1px 0   #000000,
+				-1px -0   0   #000000,
+				 1px -0   0   #000000,
+				-1px  0   0   #000000,
+				 1px  0   0   #000000,
+				-1px -1px 0   #000000,
+				 1px -1px 0   #000000,
+				-1px  1px 0   #000000,
+				 1px  1px 0   #000000,
+				-1px -1px 0   #000000,
+				 1px -1px 0   #000000,
+				-1px  1px 0   #000000,
+				 1px  1px 0   #000000;
+			
+		}
+	.head {
+		text-align: center;
+		color: #fff;
+		margin-top: 2%;
+		font-family: Arial;
+		font-size: 38px;
+		color: #FFFFFF;
+		text-shadow: 
+			-0   -1px 0   #000000,
+			 0   -1px 0   #000000,
+			-0    1px 0   #000000,
+			 0    1px 0   #000000,
+			-1px -0   0   #000000,
+			 1px -0   0   #000000,
+			-1px  0   0   #000000,
+			 1px  0   0   #000000,
+			-1px -1px 0   #000000,
+			 1px -1px 0   #000000,
+			-1px  1px 0   #000000,
+			 1px  1px 0   #000000,
+			-1px -1px 0   #000000,
+			 1px -1px 0   #000000,
+			-1px  1px 0   #000000,
+			 1px  1px 0   #000000;
+	}
+/*Value*/
+.wall {
+			background: #0089FF;
+		}
+		.field {
+		width: 80%;
+		height: 5%;
+		background: #ff0;
+		
+	}
+	.field td {
+		color: #fff;
+		font-family: Arial;
+		
+		color: #FFFFFF;
+		text-shadow: 
+			-0   -1px 0   #000000,
+			 0   -1px 0   #000000,
+			-0    1px 0   #000000,
+			 0    1px 0   #000000,
+			-1px -0   0   #000000,
+			 1px -0   0   #000000,
+			-1px  0   0   #000000,
+			 1px  0   0   #000000,
+			-1px -1px 0   #000000,
+			 1px -1px 0   #000000,
+			-1px  1px 0   #000000,
+			 1px  1px 0   #000000,
+			-1px -1px 0   #000000,
+			 1px -1px 0   #000000,
+			-1px  1px 0   #000000,
+			 1px  1px 0   #000000;
+	margin-top: 1%;
+	}
+	.boxLeft {
+		float:left;
+	}
+	.boxRight {
+		float:right;
+	}
+	.Line {
+		margin: 2%;
+	}
