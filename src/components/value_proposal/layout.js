@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './style.css';
-
 export default (props) => (
 	<div className="app">
 		<header className="app_header">

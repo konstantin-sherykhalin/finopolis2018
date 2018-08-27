@@ -5,14 +5,20 @@ import API from '../../services/api';
 
 import Layout from './layout';
 
-export default class User extends Component {
+export default class Login extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			page: 'login',
+		};
+	}
+
+	change_page = (page) => {
+		this.setState({page});
 	}
 
 	render() {
-		return <Layout/>;
+		return <Layout page={this.state.page} change_page={this.change_page} />;
 	}
 }

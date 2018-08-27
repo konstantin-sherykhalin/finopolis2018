@@ -1,6 +1,6 @@
 import st from './storage';
 
-var domain = 'http://95.213.200.174/api/v2';
+var domain = 'https://yellowforceapi.now.sh/api/v1';
 
 function API(method,data = {}) {
 	return new Promise(async (resolve,reject) => {
@@ -11,6 +11,7 @@ function API(method,data = {}) {
 				console.log("API: "+domain+method,data);
 				fetch(domain+method,{
 					method: 'POST',
+					mode: 'no-cors',
 					headers: {
 						'Accept':		'application/json',
 						'Content-Type':	'application/json',
@@ -19,7 +20,7 @@ function API(method,data = {}) {
 				})
 					.then(res  => {
 						if(res.status == 200)	return res.json();
-						else					return {error:errors.internal_error};
+						else					return {error:{type:'internal_error',status:res.status,res}};
 					})
 					.then(data => resolve(data))
 					.catch(err => console.error(err))
@@ -34,6 +35,18 @@ function API(method,data = {}) {
 }
 
 var methods = [
+	'/user/registration',
+	'/user/login',
+	'/user/get',
+	'/stage/get',
+	'/step/get',
+	'/value_proposal/send',
+	'/value_proposal/update',
+	'/value_proposal/get',
+	'/expert/registration',
+	'/expert/login',
+	'/expert/get',
+	'/expert/project_list',
 ];
 
 export default API;
