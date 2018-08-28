@@ -7,7 +7,7 @@ export default (props) => (
 			<h1 className="app_title">Юзер</h1>
 		</header>
 		<div className="content">
-			<p>Привет %username%</p>
+			<p>Привет, {props.we.name+' '+props.we.family}!</p>
 		</div>
 	</div>
 );

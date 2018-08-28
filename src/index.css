@@ -1,7 +1,36 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
+	margin: 0; padding: 0;
+	color: #333;
+	font-size: 16px; font-family: 'Arial';
+}
+
+* {
+	box-sizing: border-box;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+}
+
+input[type=text],input[type=password],textarea,select {
+	padding: 8px 10px;
+	border: 1px solid #999; border-radius: 3px;
+}
+input[type=text]:focus,input[type=password]:focus,textarea:focus,select:focus {
+	outline: 0;
+}
+input[type=button],input[type=submit],button {
+	width: fit-content;
+	padding: 7px 25px;
+	border: 0; border-radius: 3px;
+	background: #d0000f; color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+input[type=button]:focus,input[type=submit]:focus,button:focus {
+	background: #a6000d;
+	outline: 0;
 }
 
 .app {
@@ -20,7 +49,7 @@ body {
 .app .app_title {
 	font-size: 24px;
 	text-align: center;
-	
+
 }
 .app .content {
 	box-sizing: border-box;
@@ -75,114 +104,114 @@ body {
 }
 /*ENTER*/
 .wall {
-			background: #0089FF;
-		}
-		.first {
-			text-align: center;
-			margin-top: 5%;
-		}
-		.button {
-			text-align: center;
-			margin-top: 1%;
-			
-		}
-		.first input {
-			text-align: center;
-			margin-bottom: 3%;
-		}
-		.inputs {
-			width: 200;
-			height: 30;
-			border: 1px solid #000;
-		}
-		.button input {
-			font-family: Arial;
-			font-size: 15px;
-			color: #FFFFFF;
-			text-shadow: 
-				-0   -1px 0   #000000,
-				 0   -1px 0   #000000,
-				-0    1px 0   #000000,
-				 0    1px 0   #000000,
-				-1px -0   0   #000000,
-				 1px -0   0   #000000,
-				-1px  0   0   #000000,
-				 1px  0   0   #000000,
-				-1px -1px 0   #000000,
-				 1px -1px 0   #000000,
-				-1px  1px 0   #000000,
-				 1px  1px 0   #000000,
-				-1px -1px 0   #000000,
-				 1px -1px 0   #000000,
-				-1px  1px 0   #000000,
-				 1px  1px 0   #000000;
-			
-		}
-	.head {
-		text-align: center;
-		color: #fff;
-		margin-top: 2%;
-		font-family: Arial;
-		font-size: 38px;
-		color: #FFFFFF;
-		text-shadow: 
-			-0   -1px 0   #000000,
-			 0   -1px 0   #000000,
-			-0    1px 0   #000000,
-			 0    1px 0   #000000,
-			-1px -0   0   #000000,
-			 1px -0   0   #000000,
-			-1px  0   0   #000000,
-			 1px  0   0   #000000,
-			-1px -1px 0   #000000,
-			 1px -1px 0   #000000,
-			-1px  1px 0   #000000,
-			 1px  1px 0   #000000,
-			-1px -1px 0   #000000,
-			 1px -1px 0   #000000,
-			-1px  1px 0   #000000,
-			 1px  1px 0   #000000;
-	}
+	background: #0089FF;
+}
+.first {
+	text-align: center;
+	margin-top: 5%;
+}
+.button {
+	text-align: center;
+	margin-top: 1%;
+
+}
+.first input {
+	text-align: center;
+	margin-bottom: 3%;
+}
+.inputs {
+	width: 200;
+	height: 30;
+	border: 1px solid #000;
+}
+.button input {
+	font-family: Arial;
+	font-size: 15px;
+	color: #FFFFFF;
+	text-shadow:
+		-0   -1px 0   #000000,
+		 0   -1px 0   #000000,
+		-0    1px 0   #000000,
+		 0    1px 0   #000000,
+		-1px -0   0   #000000,
+		 1px -0   0   #000000,
+		-1px  0   0   #000000,
+		 1px  0   0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000;
+
+}
+.head {
+	text-align: center;
+	color: #fff;
+	margin-top: 2%;
+	font-family: Arial;
+	font-size: 38px;
+	color: #FFFFFF;
+	text-shadow:
+		-0   -1px 0   #000000,
+		 0   -1px 0   #000000,
+		-0    1px 0   #000000,
+		 0    1px 0   #000000,
+		-1px -0   0   #000000,
+		 1px -0   0   #000000,
+		-1px  0   0   #000000,
+		 1px  0   0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000;
+}
 /*Value*/
 .wall {
-			background: #0089FF;
-		}
-		.field {
-		width: 80%;
-		height: 5%;
-		background: #ff0;
-		
-	}
-	.field td {
-		color: #fff;
-		font-family: Arial;
-		
-		color: #FFFFFF;
-		text-shadow: 
-			-0   -1px 0   #000000,
-			 0   -1px 0   #000000,
-			-0    1px 0   #000000,
-			 0    1px 0   #000000,
-			-1px -0   0   #000000,
-			 1px -0   0   #000000,
-			-1px  0   0   #000000,
-			 1px  0   0   #000000,
-			-1px -1px 0   #000000,
-			 1px -1px 0   #000000,
-			-1px  1px 0   #000000,
-			 1px  1px 0   #000000,
-			-1px -1px 0   #000000,
-			 1px -1px 0   #000000,
-			-1px  1px 0   #000000,
-			 1px  1px 0   #000000;
-	margin-top: 1%;
-	}
-	.boxLeft {
-		float:left;
-	}
-	.boxRight {
-		float:right;
-	}
-	.Line {
-		margin: 2%;
-	}
+	background: #0089FF;
+}
+.field {
+	width: 80%;
+	height: 5%;
+	background: #ff0;
+
+}
+.field td {
+	color: #fff;
+	font-family: Arial;
+
+	color: #FFFFFF;
+	text-shadow:
+		-0   -1px 0   #000000,
+		 0   -1px 0   #000000,
+		-0    1px 0   #000000,
+		 0    1px 0   #000000,
+		-1px -0   0   #000000,
+		 1px -0   0   #000000,
+		-1px  0   0   #000000,
+		 1px  0   0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000,
+		-1px -1px 0   #000000,
+		 1px -1px 0   #000000,
+		-1px  1px 0   #000000,
+		 1px  1px 0   #000000;
+margin-top: 1%;
+}
+.boxLeft {
+	float:left;
+}
+.boxRight {
+	float:right;
+}
+.Line {
+	margin: 2%;
+}

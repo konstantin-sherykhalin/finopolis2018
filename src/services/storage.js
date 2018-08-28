@@ -5,30 +5,7 @@ var st = new function() {
 
 	// Здесь определена исходная структура хранилища
 	var st;
-	if(localStorage.comtrud === undefined) localStorage.comtrud = JSON.stringify({
-		// Раздел исполнителей
-		performer: {
-			list: {
-				search_params: {},	// Последние параметры поиска
-				map: false,			// Открыть карту
-				// Последние результаты поиска
-				results: {
-					count:	0,
-					items:	[],
-				},
-			},
-			saved: [],				// Сохраненные исполнители
-		},
-		// Раздел работ
-		work: {
-			example: {},			// Пример работы - используется для создания заказа по примеру
-			last: {},				// Последняя работа - используется для редактирования
-			our: [],				// Наши работы
-			saved: [],				// Сохраненные работы
-		},
-		// Страны
-		country: {},
-	});
+	if(localStorage.comtrud === undefined) localStorage.comtrud = JSON.stringify({});
 
 	// Получение хранилища
 	this.take = function() {
@@ -72,6 +49,24 @@ var st = new function() {
 		return this;
 	}
 
+	// Изъятие объекта из списка сохраненных в хранилище
+	this.get_object = function(section,id,lifetime = 30*24*60*60*1000) {
+		if(['employer','work','application'].indexOf(section)<0) {
+			console.error('Нельзя сохранять в раздел '+section);
+			return;
+		}
+		// Ищем сохраненный
+		for(let i=0; i<st[section].saved.length; i++) if(st[section].saved[i].id == id) {
+			// Если срок годности не вышел то выдаем, иначе удаляем
+			if(new Date().getTime()-st[section].saved[i]._st_saved_timestamp < lifetime) {
+				return st[section].saved[i];
+			} else {
+				st[section].saved.splice(i,1);
+				break;
+			}
+		}
+		return false;
+	}
 	// Сохранение объекта в список сохраненных в хранилище
 	this.save_object = function(section,obj) {
 		if(['performer','work'].indexOf(section)<0) {

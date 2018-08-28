@@ -4,14 +4,14 @@ var domain = 'https://yellowforceapi.now.sh/api/v1';
 
 function API(method,data = {}) {
 	return new Promise(async (resolve,reject) => {
-		if(method.substr(-1) == '/') method = method.substr(0,-1);
-		if(method.substr(0,1) != '/') method = '/'+method;
+		if(method.substr(-1) === '/') method = method.substr(0,-1);
+		if(method.substr(0,1) !== '/') method = '/'+method;
 		if(methods.indexOf(method) != -1) {
 			try {
 				console.log("API: "+domain+method,data);
 				fetch(domain+method,{
 					method: 'POST',
-					mode: 'no-cors',
+					crossDomain: true,
 					headers: {
 						'Accept':		'application/json',
 						'Content-Type':	'application/json',
