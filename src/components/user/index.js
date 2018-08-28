@@ -11,7 +11,7 @@ export default class User extends Component {
 
 		this.state = {
 			we: st.we,
-			
+			error: [],
 			id_stage: 1,
 			id_step: 1,
 			stage: {},
@@ -31,11 +31,28 @@ export default class User extends Component {
 		let {response_stage,error_stage} = await API('/stage/get',{"id": this.state.id_stage})
 		let {response_step,error_step} = await API('/step/get',{"id": this.state.id_step, "stage" : this.state.id_stage})
 		if (response_stage) this.setState({stage: response_stage});
+		else if(error_stage) this.setState({error: this.state.error.push(error.message)});
 		if (response_step) this.setState({step: response_step});
-	
+		else if(error_step) this.setState({error: this.state.error.push(error.message)});
+		
+		this.state.error.length ?
+		setTimeout(_ => this.setState({error: []}),5000)
+		: null
 	}
 
 	render() {
-		return <Layout we={this.state.we}/>;
+		return (
+		<div>
+		{
+			this.state.error.length ?
+			(
+			<div className="error">
+				<p style={{textAlign: 'center'}}>{this.state.error}</p>
+			</div>
+			) : null
+		}
+			<Layout we={this.state.we}/>
+		</div>
+		);
 	}
 }

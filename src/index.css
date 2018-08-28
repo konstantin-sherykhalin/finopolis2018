@@ -215,3 +215,14 @@ margin-top: 1%;
 .Line {
 	margin: 2%;
 }
+.error {
+	justify-content: flex-start;
+	align-items: flex-start;
+	background: #FF4040;
+	width: 10%;
+	height: 50px;
+	position: absolute;
+	border-radius: 5px;
+	transition: 1s;
+	z-index: 10;
+}

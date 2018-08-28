@@ -14,6 +14,7 @@ export default class Login extends Component {
 			phone: '',
 			pass: '',
 			next: st.id,
+			error: [],
 		};
 	}
 
@@ -44,15 +45,29 @@ export default class Login extends Component {
 			st.set('user_id',response.user_id);
 			this.setState({next:response});
 		} else if(error) {
-			console.error(error);
+			this.setState({error: this.state.error.push(error.message)});
 		}
+		
+		this.state.error.length ?
+		setTimeout(_ => this.setState({error: []}),5000)
+		: null
 	}
 
 	render() {
 		return (
+		<div>
+		{
+			this.state.error.length ?
+			(
+			<div className="error">
+				<p style={{textAlign: 'center'}}>{this.state.error}</p>
+			</div>
+			) : null
+		}
 			this.state.next
 			? <Redirect to="/user" />
 			: <Layout {...this.state} {...this} />
+		</div>
 		);
 	}
 }
