@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {BrowserRouter,Route,Switch,Link} from 'react-router-dom';
 
 import API	from '../../services/api';
 import st	from '../../services/storage';
@@ -10,10 +9,21 @@ export default class User extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			we: st.we,
+		};
+	}
+
+	async componentDidMount() {
+		// Узнаем данные о себе
+		var {response,error} = await API('/user/get',{id:st.id});
+		if(response) {
+			await this.setState({we:response});
+			st.set('user',response);
+		}
 	}
 
 	render() {
-		return <Layout we={st.we}/>;
+		return <Layout we={this.state.we}/>;
 	}
 }

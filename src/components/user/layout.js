@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default (props) => (
+export default (props) => props.we ? (
 	<div className="app">
 		<header className="app_header">
 			<h1 className="app_title">Юзер</h1>
@@ -10,4 +10,4 @@ export default (props) => (
 			<p>Привет, {props.we.name+' '+props.we.family}!</p>
 		</div>
 	</div>
-);
+) : null;

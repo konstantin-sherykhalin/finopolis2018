@@ -5,7 +5,8 @@ var st = new function() {
 
 	// Здесь определена исходная структура хранилища
 	var st;
-	if(localStorage.comtrud === undefined) localStorage.comtrud = JSON.stringify({});
+	if(localStorage.comtrud === undefined)
+		localStorage.comtrud = JSON.stringify({});
 
 	// Получение хранилища
 	this.take = function() {
