@@ -9,20 +9,51 @@ export default class Expert extends Component {
 	constructor(props) {
 		super(props);
 
+<<<<<<< HEAD
 		this.state = {
 			count: 0,
 			items: [],
 		};
+=======
+		this.state = {project_list: {}, error: []};
+>>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
 	}
 
 	async componentDidMount() {
+<<<<<<< HEAD
 		var {response,error} = await API('/expert/project_list',{rev:1});
 		if(response) {
 			this.setState({...response});
 		}
+=======
+		let {response,error} = await API('/expert/project_list');
+		if (response)
+			this.setState({project_list: response});
+		else if(error) this.setState({error: this.state.error.push(error.message)});
+		
+		this.state.error.length ?
+		setTimeout(_ => this.setState({error: []}),5000)
+		: null
+>>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
 	}
 
 	render() {
+<<<<<<< HEAD
 		return <Layout {...this.state} />;
+=======
+		return (
+		<div>
+		{
+			this.state.error.length ?
+			(
+			<div className="error">
+				<p style={{textAlign: 'center'}}>{this.state.error}</p>
+			</div>
+			) : null
+		}
+			<Layout/>
+		</div>
+		);
+>>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
 	}
 }
