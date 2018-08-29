@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import API	from '../../../services/api';
-import st	from '../../../services/storage';
+import API			from '../../../services/api';
+import global_error	from '../../../services/global_error';
+import st			from '../../../services/storage';
 
 import Layout from './layout';
 
@@ -60,29 +61,15 @@ export default class Registration extends Component {
 			st.set('user_id',response.user_id);
 			this.setState({next:response});
 		} else if(error) {
-			this.setState({error: this.state.error.push(error.message)});
+			global_error.process(error);
 		}
-		
-		this.state.error.length ?
-		setTimeout(_ => this.setState({error: []}),5000)
-		: null
 	}
 
 	render() {
 		return (
-		<div>
-		{
-			this.state.error.length ?
-			(
-			<div className="error">
-				<p style={{textAlign: 'center'}}>{this.state.error}</p>
-			</div>
-			) : null
-		}
 			this.state.next
 			? <Redirect to="/user" />
 			: <Layout {...this.state} {...this} />
-		</div>
 		);
 	}
 }

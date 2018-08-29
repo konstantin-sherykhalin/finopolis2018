@@ -1,9 +1,11 @@
 import React,{Component} from 'react';
 import {Route,Switch,Redirect} from 'react-router-dom';
 
-import API	from './services/api';
-import st	from './services/storage';
+import API			from './services/api';
+import global_error	from './services/global_error';
+import st			from './services/storage';
 
+import Error			from './components/error';
 import Main				from './components/main';
 import Enter			from './components/enter';
 import User				from './components/user';
@@ -25,6 +27,11 @@ export default () => {
 	return (
 		!st.id && window.location.pathname!='/enter'
 		? <Redirect to="/enter" />
-		: <Switch>{routes}</Switch>
+		: (
+			<div>
+				<Error list={global_error.list} />
+				<Switch>{routes}</Switch>
+			</div>
+		)
 	);
 }

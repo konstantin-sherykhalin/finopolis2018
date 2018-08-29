@@ -226,3 +226,28 @@ margin-top: 1%;
 	transition: 1s;
 	z-index: 10;
 }
+
+/* ВСПЛЫВАЮЩАЯ ОШИБКА */
+#slide_errors_block,#slide_settings_block {
+	display: none;
+	position: fixed; top: 0px; left: 0px;
+	min-width: 180px; max-width: 300px;
+	margin: 0px; padding: 7px;
+	font-size: 12px; font-family: 'Verdana';
+	text-align: center;
+	z-index: 4;
+}
+#slide_errors_block {
+	background: #f88; color: #111;
+}
+#slide_settings_block {
+	background: #8af; color: #fff;
+}
+#slide_errors_block h5,#slide_settings_block h5 {
+	margin: 0px 5px;
+	font-size: 18px; font-weight: normal;
+}
+#slide_errors_block p,#slide_settings_block p {
+	margin: 5px;
+	font-size: 12px;
+}

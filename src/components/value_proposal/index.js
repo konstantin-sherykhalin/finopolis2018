@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {BrowserRouter,Route,Switch,Link} from 'react-router-dom';
 
-import API from '../../services/api';
+import API			from '../../services/api';
+import global_error	from '../../services/global_error';
 
 import Layout from './layout';
 
@@ -9,54 +10,16 @@ export default class ValueProposal extends Component {
 	constructor(props) {
 		super(props);
 
-<<<<<<< HEAD
 		this.state = {};
-=======
-		this.state = {value_proposal: {},id: 1, user_id: 1, error: ''};
->>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
 	}
 
 	async componentDidMount() {
-<<<<<<< HEAD
 		var {response,error} = await API('/value_proposal/get',{"id": this.state.id});
 		if(response) {
 			this.setState({...response});
-=======
-		let {response,error} = await API('/value_proposal/get',{"id": this.state.id});
-		if (response) {
-			let {response_update, error_update} = await API('/value_proposal/update',{"id" : this.state.id, "user_id" :this.state.user_id})
-				if (response_update) this.setState({value_proposal: response_update})
 		}
-		else if(error) this.setState({error: this.state.error.push(error.message)});
-		else {
-			{/*Для send нужно много данных в виде JSON, см. АПИ В1. В данном случае отправляется пустой объект*/}
-			let {response_send, error_send} = await API('/value_proposal/send')
-				if (response_send) this.setState({value_proposal: response_send});
-				else if (error_send) this.setState({error: this.state.error.push(error.message)});
->>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
-		}
-		
-		this.state.error.length ?
-		setTimeout(_ => this.setState({error: []}),5000)
-		: null
 	}
 	render() {
-<<<<<<< HEAD
 		return <Layout {...this.state} />;
-=======
-		return (
-		<div>
-		{
-			this.state.error.length ?
-			(
-			<div className="error">
-				<p style={{textAlign: 'center'}}>{this.state.error}</p>
-			</div>
-			) : null
-		}
-			<Layout/>
-		</div>
-		);
->>>>>>> bb6ad193218f3a04497400bba4b6009800443cb9
 	}
 }

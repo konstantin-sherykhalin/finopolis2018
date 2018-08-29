@@ -1,4 +1,5 @@
-import st from './storage';
+import global_error	from './global_error';
+import st			from './storage';
 
 var domain = 'https://yellowforceapi.now.sh/api/v1';
 
@@ -8,7 +9,7 @@ function API(method,data = {}) {
 		if(method.substr(0,1) !== '/') method = '/'+method;
 		if(methods.indexOf(method) != -1) {
 			try {
-				console.log("API: "+domain+method,data);
+				// console.log("API: "+domain+method,data);
 				fetch(domain+method,{
 					method: 'POST',
 					crossDomain: true,
@@ -20,10 +21,10 @@ function API(method,data = {}) {
 				})
 					.then(res  => {
 						if(res.status == 200)	return res.json();
-						else					return {error:{type:'internal_error',status:res.status,res}};
+						else					return global_error.process({error:{type:'http',status:res.status,res}});
 					})
 					.then(data => resolve(data))
-					.catch(err => console.error(err))
+					.catch(err => global_error.process(err))
 				;
 			} catch (e) {
 				console.error(e);

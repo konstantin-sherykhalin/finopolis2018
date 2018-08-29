@@ -1,14 +1,16 @@
 import React,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import API	from '../../services/api';
-import st	from '../../services/storage';
+import API			from '../../services/api';
+import global_error	from '../../services/global_error';
+import st			from '../../services/storage';
+
 import Layout from './layout';
 
 export default class Main extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			error: [],
 		};
@@ -24,7 +26,7 @@ export default class Main extends Component {
 		{
 			this.state.error.length ?
 			(
-			
+
 			<div className="error">
 				<p style={{textAlign: 'center'}}>{this.state.error}</p>
 			</div>
