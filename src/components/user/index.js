@@ -106,7 +106,7 @@ export default class User extends Component {
 			},
 			text: 'готово',
 		},
-	};
+	}
 
 	render() {
 		return <Layout {...this.state} status={this.status} />;

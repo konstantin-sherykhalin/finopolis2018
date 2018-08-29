@@ -6,6 +6,8 @@ import './style.css';
 export default (props) => props.we ? (
 	<div className="content">
 		<div className="menu">
+			<Link to="/user"><span className='selected'>Смотреть как пользователь</span></Link>
+			<Link to="/expert"><span>Смотреть как эксперт</span></Link>
 		</div>
 		<div className="component">
 		{props.stage.map(stage => stage ? (
@@ -16,7 +18,7 @@ export default (props) => props.we ? (
 				</div>
 				<div className="stage_steps">
 				{stage.step.map(step => step ? (
-					<Link style={{textDecoration:'none'}} to="/value_proposal"><div className="step_area" style={props.status[step.status].style}>
+					<Link to="/value_proposal"><div className="step_area" style={props.status[step.status].style}>
 						<div className="step_title">{step.title}</div>
 						<div className="step_status">{props.status[step.status].text}</div>
 					</div></Link>
