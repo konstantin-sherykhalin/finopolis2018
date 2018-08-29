@@ -12,8 +12,8 @@ import User				from './components/user';
 import ValueProposal	from './components/value_proposal';
 import Expert			from './components/expert';
 
-import Header 			from './components/header';
-import Footer 			from './components/footer';
+import Top 				from './templates/top';
+import Bottom 			from './templates/bottom';
 
 var routes = [
 	<Route key="1" exact path='/enter'			component={Enter} />,
@@ -28,9 +28,11 @@ export default () => {
 		!st.id && window.location.pathname!='/enter'
 		? <Redirect to="/enter" />
 		: (
-			<div>
+			<div className="container">
 				<Error list={global_error.list} />
+				<Top/>
 				<Switch>{routes}</Switch>
+				<Bottom/>
 			</div>
 		)
 	);

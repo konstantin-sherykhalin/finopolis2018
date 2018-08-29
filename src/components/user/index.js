@@ -12,7 +12,51 @@ export default class User extends Component {
 
 		this.state = {
 			we: st.we,
-			stage: [],
+			stage: [
+			    {
+					id: 0,
+					title: 'Исследование пользователей',
+					completed: 5,
+			        step: [
+				        {
+			                id: 0,
+			                status: 1,
+			                title: 'Ценностное предложение',
+			            },
+			            {
+			                id: 1,
+			                status: 0,
+			                title: 'Подтверждение проблемы',
+			            },
+			            {
+			                id: 2,
+			                status: -1,
+			                title: 'Моделирование экономики',
+			            },
+			            {
+			                id: 3,
+			                status: -1,
+			                title: 'MVP',
+			            },
+			            {
+			                id: 4,
+			                status: -1,
+			                title: 'Подтверждение решения',
+			            },
+			            {
+			                id: 5,
+			                status: -1,
+			                title: 'Первая продажа',
+			            },
+			        ],
+			    },
+			    {
+			        id: 0,
+			        title: 'Тестирование каналов',
+					completed: 0,
+			        step: [],
+			    }
+			],
 		};
 	}
 
@@ -24,26 +68,47 @@ export default class User extends Component {
 			st.set('user',response);
 		}
 
+		/*
 		var waiting = [];
 		var stage = this.state.stage;
 		for(let i=0; i<2; i++) {
-			stage.push({});
+			stage.push({step:[]});
 			waiting.push(API('/stage/get',{id:i}).then(({response}) => stage[i] = Object.assign(stage[i],response)));
 		}
-		stage[0].step = [];
 		for(let i=0; i<6; i++) {
 			waiting.push(API('/step/get',{id:i,stage:0}).then(({response}) => stage[0].step[i] = response));
 		}
 		await Promise.all(waiting);
 
-		console.log(stage);
 		this.setState({stage});
-
-		console.log(global_error);
-		global_error.throw("XSS","XDD");
+		*/
 	}
 
+	status = {
+		'-1': {
+			style: {
+				borderTopColor: '#ddd',
+				background: '#808080', color: '#fff',
+			},
+			text: 'закрыто',
+		},
+		'0': {
+			style: {
+				borderTopColor: '#777',
+				background: '#fc0', color: '#fff',
+			},
+			text: 'нужно заполнить',
+		},
+		'1': {
+			style: {
+				borderTopColor: '#777',
+				background: '#2d0', color: '#fff',
+			},
+			text: 'готово',
+		},
+	};
+
 	render() {
-		return <Layout {...this.state}/>;
+		return <Layout {...this.state} status={this.status} />;
 	}
 }

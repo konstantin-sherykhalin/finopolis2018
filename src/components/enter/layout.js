@@ -11,29 +11,12 @@ export default (props) => {
 	else						component = <Registration/>;
 
 	return (
-		<div className="container">
-			<div className="top">
-				<div className="line">
-					<div className="left" />
-					<div className="center" />
-					<div className="right" />
-				</div>
-				<div className="menu">
-					<span className={props.page=='login'	    ? 'selected' : ''} onClick={_=>props.change_page('login')}>Вход</span>
-					<span className={props.page=='registration' ? 'selected' : ''} onClick={_=>props.change_page('registration')}>Регистрация</span>
-				</div>
+		<div className="content">
+			<div className="menu">
+				<span className={props.page=='login'	    ? 'selected' : ''} onClick={_=>props.change_page('login')}>Вход</span>
+				<span className={props.page=='registration' ? 'selected' : ''} onClick={_=>props.change_page('registration')}>Регистрация</span>
 			</div>
-			<div className="content">
-				<div className="component">{component}</div>
-			</div>
-			<div className="bottom">
-				<div className="dark" />
-				<div className="line">
-					<div className="left" />
-					<div className="center" />
-					<div className="right" />
-				</div>
-			</div>
+			<div className="component">{component}</div>
 		</div>
 	);
 }

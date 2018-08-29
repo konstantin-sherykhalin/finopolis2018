@@ -20,7 +20,7 @@ export default (props) => (
 			<input type="password" placeholder="Введите пароль" onChange={props.install_pass} />
 		</div>
 		<div className="enter_submit">
-			<button onClick={props.send}>Зарегистрироваться</button>
+			<button className="submit" onClick={props.send}>Зарегистрироваться</button>
 		</div>
 	</div>
 );

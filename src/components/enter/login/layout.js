@@ -12,8 +12,8 @@ export default (props) => (
 			<input type="password" placeholder="Введите пароль" onChange={props.install_pass} />
 		</div>
 		<div className="enter_submit">
-			<span onClick={_=>alert("Ну так вспомните его!")}>Забыли пароль?</span>
-			<button onClick={props.send}>Войти</button>
+			<button className="reject" onClick={_=>alert("Ну так вспомните его!")}>Забыли пароль?</button>
+			<button className="submit" onClick={props.send}>Войти</button>
 		</div>
 	</div>
 );

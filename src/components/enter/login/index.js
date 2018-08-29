@@ -14,7 +14,7 @@ export default class Login extends Component {
 		this.state = {
 			phone: '',
 			pass: '',
-			next: st.id,
+			next: false, // st.id,
 			error: [],
 		};
 	}

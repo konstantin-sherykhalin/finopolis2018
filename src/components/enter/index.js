@@ -15,24 +15,8 @@ export default class Login extends Component {
 	change_page = (page) => {
 		this.setState({page});
 	}
-	componentDidMount () {
-		this.state.error.length ?
-		setTimeout(_ => this.setState({error: []}),5000)
-		: null
-	}
+
 	render() {
-		return (
-		<div>
-		{
-			this.state.error.length ?
-			(
-			<div className="error">
-				<p style={{textAlign: 'center'}}>{this.state.error}</p>
-			</div>
-			) : null
-		}
-			<Layout page={this.state.page} change_page={this.change_page} />
-		</div>
-		);
+		return <Layout page={this.state.page} change_page={this.change_page} />
 	}
 }

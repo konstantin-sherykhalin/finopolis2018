@@ -16,7 +16,7 @@ export default class Registration extends Component {
 			name: '',
 			family: '',
 			pass: '',
-			next: st.id,
+			next: false, // st.id,
 			error: [],
 		};
 	}

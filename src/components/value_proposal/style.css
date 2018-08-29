@@ -1,32 +1,39 @@
-.enter_area {
-	width: 100%; max-width: 480px;
+.form_area {
+	width: 100%; max-width: 640px;
 	padding: 20px;
+	margin: -1px auto;
 	border: 1px solid #383637;
 }
 @media (max-width: 480px) {
-	.enter_area {
+	.form_area {
 		border: 0;
 	}
 }
-.enter_area .enter_title {
+.form_area .form_title {
 	margin-bottom: 5px; padding: 0px 0px 5px;
 	border-bottom: 1px solid #555;
 	font-size: 28px;
 }
-.enter_area .enter_field {
+.form_area .form_field {
 	margin: 5px 0px 15px;
 	font-size: 16px;
 }
-.enter_area .enter_field p {
+.form_area .form_field p {
 	margin: 0; padding: 5px 0px;
 }
-.enter_area .enter_field input {
-	display: block;
-	width: 100%;
+.form_area .form_field input {
+	/* display: block;
+	width: 100%; */
+	width: fit-content;
+	margin: 2px 0px;
+	font-size: 16px;
+	text-align: center;
+}
+.form_area .form_field textarea {
 	margin: 0;
 	font-size: 16px;
 }
-.enter_area .enter_submit {
+.form_area .form_submit {
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: baseline;

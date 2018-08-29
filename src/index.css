@@ -20,7 +20,7 @@ input[type=text],input[type=password],textarea,select {
 input[type=text]:focus,input[type=password]:focus,textarea:focus,select:focus {
 	outline: 0;
 }
-input[type=button],input[type=submit],button {
+button.submit {
 	width: fit-content;
 	padding: 7px 25px;
 	border: 0; border-radius: 3px;
@@ -28,203 +28,100 @@ input[type=button],input[type=submit],button {
 	font-size: 16px;
 	cursor: pointer;
 }
-input[type=button]:focus,input[type=submit]:focus,button:focus {
-	background: #a6000d;
+button.submit:hover,button.submit:focus {
+	background: #bb000e;
+	outline: 0;
+}
+button.reject {
+	width: fit-content;
+	padding: 5px 10px;
+	border: 0;
+	background: transparent; color: #555;
+	font-size: 14px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+button.reject:hover {
+	color: #111;
+}
+button.reject:focus {
 	outline: 0;
 }
 
-.app {
-	text-align: center;
-}
-.app .app_logo {
-	height: 80px;
-	animation: app-logo-spin infinite 20s linear;
-}
-.app .app_header {
-	/* height: 150px; */
-	padding: 20px;
-	background: #222; color: #fff;
-	text-align: center;
-}
-.app .app_title {
-	font-size: 24px;
-	text-align: center;
-
-}
-.app .content {
-	box-sizing: border-box;
-	width: 50%;
-	margin: 0px auto; padding: 15px 30px;
-	border: 1px solid #bbb; border-top: 0;
-}
-.app .content p {
-	margin: 10px 0px;
-	font-size: 14px;
-	text-align: left;
-}
-.app .content a {
-	/* #51d3fa rgb(81,211,250) */
-	color: rgb(65,169,200);
-	/* text-shadow: 0px 0px 2px ; */
-}
-.app .content a:hover {
-	color: rgb(81,211,250);
-}
-@media (max-width: 1024px) {
-	.app .content {
-		width: 70%;
-	}
-}
-@media (max-width: 768px) {
-	.app .content {
-		width: 80%;
-	}
-}
-@media (max-width: 414px) {
-	.app .content {
-		width: 100%;
-		padding: 10px 22px;
-		border: 0;
-	}
-	.app .content p {
-		text-align: justify;
-	}
+.container {
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	min-height: 100vh; width: 100%;
+	background: #fff;
+	overflow: hidden;
 }
 
-@keyframes app-logo-spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+.top,.bottom {
+	width: 100%;
+	z-index: 1;
 }
-.list li {
-	display: inline;
-	margin-right: 5px;
-	padding: 3px;
-	border: 2px solid #fff;
-	background-color: orange;
+.top .line,.bottom .line {
+	flex-direction: row;
+	height: 100px; width: 100%;
 }
-/*ENTER*/
-.wall {
-	background: #0089FF;
+.top .left,.bottom .right {
+	width: 20%;
+	background: #383637;
 }
-.first {
-	text-align: center;
-	margin-top: 5%;
+.top .right,.bottom .left {
+	width: 100%;
+	background: #1c1c1c;
 }
-.button {
-	text-align: center;
-	margin-top: 1%;
+.top .center,.bottom .center {
+	border: 50px solid;
+}
+.top .center {
+	border-color: #1c1c1c #1c1c1c #383637 #383637;
+}
+.bottom .center {
+	border-color: #1c1c1c #383637 #383637 #1c1c1c;
+}
+.bottom .dark {
+	height: 25px;
+	background: #1c1c1c;
+}
 
+.content {
+	flex: 1;
+	height: 100%; width: 100%;
+	background: #fff;
 }
-.first input {
+
+.content .menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: baseline;
+	height: 40px; width: 100%;
+	background: #383637; color: #fff;
+	font-size: 18px;
+	z-index: 1;
+}
+.content .menu span {
+	display: flex;
+	padding: 7px 30px 5px;
+	border-bottom: 7px solid transparent;
 	text-align: center;
-	margin-bottom: 3%;
 }
-.inputs {
-	width: 200;
-	height: 30;
-	border: 1px solid #000;
+.content .menu span.selected,.menu span:hover {
+	border-bottom-color: #d0000f;
+	cursor: pointer;
 }
-.button input {
-	font-family: Arial;
-	font-size: 15px;
-	color: #FFFFFF;
-	text-shadow:
-		-0   -1px 0   #000000,
-		 0   -1px 0   #000000,
-		-0    1px 0   #000000,
-		 0    1px 0   #000000,
-		-1px -0   0   #000000,
-		 1px -0   0   #000000,
-		-1px  0   0   #000000,
-		 1px  0   0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000;
 
-}
-.head {
-	text-align: center;
-	color: #fff;
-	margin-top: 2%;
-	font-family: Arial;
-	font-size: 38px;
-	color: #FFFFFF;
-	text-shadow:
-		-0   -1px 0   #000000,
-		 0   -1px 0   #000000,
-		-0    1px 0   #000000,
-		 0    1px 0   #000000,
-		-1px -0   0   #000000,
-		 1px -0   0   #000000,
-		-1px  0   0   #000000,
-		 1px  0   0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000;
-}
-/*Value*/
-.wall {
-	background: #0089FF;
-}
-.field {
-	width: 80%;
-	height: 5%;
-	background: #ff0;
-
-}
-.field td {
-	color: #fff;
-	font-family: Arial;
-
-	color: #FFFFFF;
-	text-shadow:
-		-0   -1px 0   #000000,
-		 0   -1px 0   #000000,
-		-0    1px 0   #000000,
-		 0    1px 0   #000000,
-		-1px -0   0   #000000,
-		 1px -0   0   #000000,
-		-1px  0   0   #000000,
-		 1px  0   0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000,
-		-1px -1px 0   #000000,
-		 1px -1px 0   #000000,
-		-1px  1px 0   #000000,
-		 1px  1px 0   #000000;
-margin-top: 1%;
-}
-.boxLeft {
-	float:left;
-}
-.boxRight {
-	float:right;
-}
-.Line {
-	margin: 2%;
-}
-.error {
-	justify-content: flex-start;
-	align-items: flex-start;
-	background: #FF4040;
-	width: 10%;
-	height: 50px;
-	position: absolute;
-	border-radius: 5px;
-	transition: 1s;
-	z-index: 10;
+.component {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: -1px auto;
+	background: #fff;
+	z-index: 0;
 }
 
 /* ВСПЛЫВАЮЩАЯ ОШИБКА */
@@ -233,8 +130,7 @@ margin-top: 1%;
 	position: fixed; top: 0px; left: 0px;
 	min-width: 180px; max-width: 300px;
 	margin: 0px; padding: 7px;
-	font-size: 12px; font-family: 'Verdana';
-	text-align: center;
+	font-size: 12px;
 	z-index: 4;
 }
 #slide_errors_block {
@@ -246,6 +142,7 @@ margin-top: 1%;
 #slide_errors_block h5,#slide_settings_block h5 {
 	margin: 0px 5px;
 	font-size: 18px; font-weight: normal;
+	text-align: center;
 }
 #slide_errors_block p,#slide_settings_block p {
 	margin: 5px;
