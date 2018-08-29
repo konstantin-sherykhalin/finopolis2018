@@ -11,11 +11,8 @@ export default class User extends Component {
 
 		this.state = {
 			we: st.we,
-			
-			id_stage: 1,
-			id_step: 1,
-			stage: {},
-			step: {},
+
+			stage: [],
 		};
 	}
 
@@ -26,16 +23,24 @@ export default class User extends Component {
 			await this.setState({we:response});
 			st.set('user',response);
 		}
-		
-		
-		let {response_stage,error_stage} = await API('/stage/get',{"id": this.state.id_stage})
-		let {response_step,error_step} = await API('/step/get',{"id": this.state.id_step, "stage" : this.state.id_stage})
-		if (response_stage) this.setState({stage: response_stage});
-		if (response_step) this.setState({step: response_step});
-	
+
+		var waiting = [];
+		var stage = this.state.stage;
+		for(let i=0; i<2; i++) {
+			stage.push({});
+			waiting.push(API('/stage/get',{id:i}).then(({response}) => stage[i] = Object.assign(stage[i],response)));
+		}
+		stage[0].step = [];
+		for(let i=0; i<6; i++) {
+			waiting.push(API('/step/get',{id:i,stage:0}).then(({response}) => stage[0].step[i] = response));
+		}
+		await Promise.all(waiting);
+
+		console.log(stage);
+		this.setState({stage});
 	}
 
 	render() {
-		return <Layout we={this.state.we}/>;
+		return <Layout {...this.state}/>;
 	}
 }

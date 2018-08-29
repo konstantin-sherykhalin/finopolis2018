@@ -9,14 +9,20 @@ export default class Expert extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {project_list: {}};
+		this.state = {
+			count: 0,
+			items: [],
+		};
 	}
+
 	async componentDidMount() {
-		let {response,error} = await API('/expert/project_list');
-		if (response)
-			this.setState({project_list: response});
+		var {response,error} = await API('/expert/project_list',{rev:1});
+		if(response) {
+			this.setState({...response});
+		}
 	}
+
 	render() {
-		return <Layout/>;
+		return <Layout {...this.state} />;
 	}
 }
